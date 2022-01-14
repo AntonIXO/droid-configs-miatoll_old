@@ -1,0 +1,2 @@
+load-module module-droid-card rate=48000 prewrite_on_resume=deep_buffer=AUDIO_DEVICE_OUT_ALL:1/always
+

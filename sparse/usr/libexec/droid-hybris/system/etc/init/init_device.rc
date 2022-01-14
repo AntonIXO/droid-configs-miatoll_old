@@ -1,0 +1,22 @@
+on late-init
+	# fixes Diag_Lib:  Diag_LSM_Init: Failed to open handle to diag driver, error = 13
+	# but not bluetooth
+	chmod 0666 /dev/diag
+
+	# make selinux enforcement world readable
+	chmod 0644 /sys/fs/selinux/enforce
+
+on boot
+    # Infrared
+	chown system input /dev/lirc0
+
+    # audio wait for pulse defaultuser
+
+    wait /run/user/100000/pulse/native 10
+    enable audioserver
+    trigger pulse
+
+on pulse
+    start audioserver
+
+
