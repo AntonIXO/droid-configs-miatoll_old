@@ -27,6 +27,7 @@
 
 # Device-specific ofono configuration
 Provides: ofono-binder-plugin
+Requires: dummy_netd
 Provides: ofono-configs
 Obsoletes: ofono-configs-mer
 
