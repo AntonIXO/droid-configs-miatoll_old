@@ -23,6 +23,14 @@ Requires: libhybris-libwayland-egl
 # Bluetooth
 Requires: bluebinder
 
+#Fingerprintd
+sailfish-fpd-slave
+sailfish-fpd-community-test
+
+# Telephony
+Requires: ofono-ril-binder-plugin
+Requires: dummy_netd
+
 # For torch
 Requires: jolla-settings-system-flashlight
 
@@ -85,8 +93,11 @@ Requires: jolla-mediaplayer-radio
 # 1. binder plugin requires Android 8 or a newer base
 # 2. pn54x plugin talks directly to pn54x driver
 # These plugins are mutually exclusive, you need to pick one:
-#Requires: nfcd-binder-plugin
-#Requires: nfcd-pn54x-plugin
+Requires: nfcd-binder-plugin
+# Requires: nfcd-pn54x-plugin
+
+# For mount partitions
+Requires: parse-android-dynparts
 
 %description -n patterns-sailfish-device-adaptation-miatoll
 Pattern with packages for miatoll HW Adaptation

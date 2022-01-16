@@ -85,9 +85,11 @@
 /etc/libncicore.conf
 /etc/sensorfw/sensord.conf.d/60-sensor-selection-overrides.conf
 /etc/ofono/ril_subscription.conf
+/etc/audio_policy_configuration.xml
 /usr/libexec/droid-hybris/system/etc/init/disabled_services_device.rc
 /usr/libexec/droid-hybris/system/etc/init/init_device.rc
 /usr/libexec/droid-hybris/system/etc/init/overrides.rc
+/usr/libexec/droid-hybris/system/etc/init/android.hardware.media.omx@1.0-service.rc
 /usr/libexec/droid-hybris/system/etc/init/disabled_services.rc
 /usr/libexec/droid-hybris/system/etc/ld.config.29.txt
 /usr/libexec/droid-hybris/system/lib64/libaudioroute.so
@@ -96,10 +98,7 @@
 /usr/lib/systemd/system/bluetooth.service.wants/droid-hcismd-up.service
 /usr/lib/systemd/system/droid-hcismd-up.service
 /usr/share/csd/settings.d/hw-settings.ini
-/usr/share/ngfd/plugins.d/60-droid-vibrator.ini
-/usr/share/ngfd/plugins.d/51-ffmemless.ini
 /bin/logcat
-/bin/parse-android-dynparts
 /lib/udev/rules.d/999-droid-fm.rules
 /odm/lib/android.hardware.audio@4.0.so
 /odm/lib/android.hardware.memtrack@1.0.so

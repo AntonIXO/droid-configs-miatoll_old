@@ -13,6 +13,7 @@ mount        /dev/sde4       /vendor/firmware_mnt
 mount -o ro  /dev/sde5       /vendor/bt_firmware
 mount        /dev/sda2       /persist
 mount -o bind /vendor/firmware_mnt /firmware
+mount -o bind /vendor/firmware_mnt /vendor/rfs/msm/mpss/readonly/vendor/firmware_mnt/
 mount -o bind /vendor/bt_firmware /bt_firmware
 mount -o bind /vendor/dsp /dsp
 mount -o bind /vendor /system_root/vendor

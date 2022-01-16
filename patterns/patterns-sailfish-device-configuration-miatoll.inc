@@ -15,12 +15,12 @@ Requires: patterns-sailfish-device-tools
 Requires: sailfish-content-graphics-z%{icon_res}
 
 # For multi-SIM devices
-#Requires: jolla-settings-networking-multisim
+Requires: jolla-settings-networking-multisim
 
 # For devices which support NFC
-#Requires: jolla-settings-system-nfc
-#Requires: nfcd-dbuslog-plugin
-#Requires: nfcd-mce-plugin
+Requires: jolla-settings-system-nfc
+Requires: nfcd-dbuslog-plugin
+Requires: nfcd-mce-plugin
 
 # Introduced starting Sailfish OS 2.0.4.x:
 # 3rd party accounts like Twitter, VK, cloud services, etc
@@ -35,7 +35,10 @@ Requires: geoclue-provider-mlsdb
 
 # Devices with 2G or more memory should also include this booster
 # to improve camera startup times and the like
-#Requires: mapplauncherd-booster-silica-qt5-media
+Requires: mapplauncherd-booster-silica-qt5-media
+
+# Add pre-installed some jolla/sailfish apps
+Requires: sailfish-utilities
 
 %description -n patterns-sailfish-device-configuration-miatoll
 Pattern with packages for miatoll configurations

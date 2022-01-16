@@ -28,7 +28,9 @@
 /var/lib/nemo-pulseaudio-parameters/modes/ihfandlineout/mainvolume
 /var/lib/nemo-pulseaudio-parameters/modes/lineout/mainvolume
 /var/lib/nemo-pulseaudio-parameters/modes/usbaudio/mainvolume
-/etc/pulse/arm_droid_card_custom.pa
 /etc/pulse/xpolicy.conf.d/xvars.conf
-/etc/pulse/xpolicy.conf.d/usbaudio.conf
 /etc/pulse/xpolicy.conf.d/fmradio.conf
+/etc/pulse/xpolicy.conf.d/usbaudio.conf
+/etc/pulse/arm_droid_card_custom.pa
+/etc/pulse/client.conf.d/60-memfd.conf
+/etc/pulse/daemon.conf.d/60-memfd.conf
