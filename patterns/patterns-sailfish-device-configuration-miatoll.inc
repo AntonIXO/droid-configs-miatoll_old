@@ -41,12 +41,6 @@ Requires: mapplauncherd-booster-silica-qt5-media
 Requires: sailfish-utilities
 Requires: harbour-storeman
 
-# Waydroid
-Requires: waydroid
-Requires: dnsmasq
-Requires: waydroid-gbinder-config-hybris
-Requires: waydroid-sensors
-Requires: waydroid-settings
 
 %description -n patterns-sailfish-device-configuration-miatoll
 Pattern with packages for miatoll configurations

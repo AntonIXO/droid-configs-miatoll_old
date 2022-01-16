@@ -19,12 +19,13 @@ Requires: droid-hal-miatoll-detritus
 Requires: libhybris-libEGL
 Requires: libhybris-libGLESv2
 Requires: libhybris-libwayland-egl
+Requires: libhybris-libOpenCL
+Requires: libhybris-libvibrator
 
 # Bluetooth
 Requires: bluebinder
 
 #Fingerprintd
-Requires: sailfish-fpd-community
 Requires: sailfish-devicelock-fpd
 Requires: droid-biometry-fp
 Requires: sailfish-fpd-community-test
@@ -80,7 +81,7 @@ Requires: usb-moded
 Requires: rfkill
 
 # enable device lock and allow to select untrusted software
-Requires: jolla-devicelock-daemon-encsfa
+# Requires: jolla-devicelock-daemon-encsfa
 
 # Enable home encryption
 #Requires: sailfish-device-encryption
