@@ -23,10 +23,6 @@ Requires: libhybris-libwayland-egl
 # Bluetooth
 Requires: bluebinder
 
-#Fingerprintd
-sailfish-fpd-slave
-sailfish-fpd-community-test
-
 # Telephony
 Requires: ofono-ril-binder-plugin
 Requires: dummy_netd
