@@ -23,6 +23,13 @@ Requires: libhybris-libwayland-egl
 # Bluetooth
 Requires: bluebinder
 
+#Fingerprintd
+Requires: sailfish-fpd-community
+Requires: sailfish-devicelock-fpd
+Requires: droid-biometry-fp
+Requires: sailfish-fpd-community-test
+Requires: sailfish-fpd-community
+
 # Telephony
 Requires: ofono-ril-binder-plugin
 Requires: dummy_netd

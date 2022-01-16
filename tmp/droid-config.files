@@ -95,10 +95,10 @@
 /usr/libexec/droid-hybris/system/lib64/libaudioroute.so
 /usr/bin/droid/droid-get-bt-address.sh
 /usr/bin/droid/droid-hal-early-init.sh
+/usr/bin/logcat
 /usr/lib/systemd/system/bluetooth.service.wants/droid-hcismd-up.service
 /usr/lib/systemd/system/droid-hcismd-up.service
 /usr/share/csd/settings.d/hw-settings.ini
-/bin/logcat
 /lib/udev/rules.d/999-droid-fm.rules
 /odm/lib/android.hardware.audio@4.0.so
 /odm/lib/android.hardware.memtrack@1.0.so
