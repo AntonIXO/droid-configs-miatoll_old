@@ -91,8 +91,10 @@ Requires: rfkill
 # Requires: jolla-devicelock-daemon-encsfa
 
 # Enable home encryption
-# Requires: sailfish-device-encryption
+Requires: libargon2-tools
 Requires: droid-hwcrypt
+Requires: sailfish-device-encryption-community
+Requires: sailfish-device-encryption-community-droid
 
 # For GPS
 Requires: geoclue-provider-hybris
@@ -114,6 +116,7 @@ Requires: parse-android-dynparts
 
 # Usb-Tethering
 Requires: sailfish-connman-plugin-tethering-wmtwifi
+Requires: usb-moded-connection-sharing-android-connman-config
 
 %description -n patterns-sailfish-device-adaptation-miatoll
 Pattern with packages for miatoll HW Adaptation

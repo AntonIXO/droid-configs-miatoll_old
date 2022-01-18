@@ -23,6 +23,7 @@ mount -o bind /odm /system_root/odm
 ln -s /system_ext/lib64/libdpmframework.so /odm/lib64/libdpmframework.so
 ln -s /system_ext/lib64/libdiag_system.so /odm/lib64/libdiag_system.so
 ln -s /system_ext/lib64/vendor.qti.diaghal@1.0.so /odm/lib64/vendor.qti.diaghal@1.0.so
+mount --bind /etc/audio_policy_configuration.xml /vendor/etc/audio_policy_configuration.xml
 
 mkdir /dev/stune
 mkdir -p /dev/stune/background /dev/stune/foreground /dev/stune/nnapi-hal /dev/stune/top-app /dev/stune/rt

@@ -32,4 +32,3 @@
 /etc/pulse/client.conf.d/60-memfd.conf
 /etc/pulse/daemon.conf.d/60-memfd.conf
 /etc/pulse/arm_droid_card_custom.pa
-/lib/udev/rules.d/99-pulseaudio-ignore-builtin-card.rules

@@ -1,0 +1,12 @@
+[Unit]
+Description=Enable double-tap to wake for fts_521
+DefaultDependencies=no
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStart=/usr/bin/droid/doubletap-towake.sh
+
+[Install]
+WantedBy=graphical.target
+ 
