@@ -28,8 +28,7 @@ Requires: bluebinder
 #Fingerprintd
 Requires: sailfish-devicelock-fpd
 Requires: droid-biometry-fp
-Requires: sailfish-fpd-community-test
-Requires: sailfish-fpd-community
+Requires: sailfish-fpd
 
 # Telephony
 Requires: ofono-ril-binder-plugin
@@ -67,8 +66,16 @@ Requires: qt5-qtwayland-wayland_egl
 Requires: qt5-qpa-hwcomposer-plugin
 Requires: qtscenegraph-adaptation
 
+# Add GStreamer v1.0 as standard
+Requires: gstreamer1.0
+Requires: gstreamer1.0-plugins-good
+Requires: gstreamer1.0-plugins-base
+Requires: gstreamer1.0-plugins-bad
+Requires: nemo-gstreamer1.0-interfaces
 # For hybris devices with droidmedia, see HADK pdf for more information
 Requires: gstreamer1.0-droid
+Requires: gstreamer1.0-droid-devel
+Requires: gstreamer1.0-droid-tools
 Requires: gmp-droid
 
 # This is needed for notification LEDs
@@ -84,7 +91,8 @@ Requires: rfkill
 # Requires: jolla-devicelock-daemon-encsfa
 
 # Enable home encryption
-#Requires: sailfish-device-encryption
+# Requires: sailfish-device-encryption
+Requires: droid-hwcrypt
 
 # For GPS
 Requires: geoclue-provider-hybris
@@ -92,6 +100,7 @@ Requires: geoclue-provider-hybris
 # For FM radio on some QCOM devices
 Requires: qt5-qtmultimedia-plugin-mediaservice-irisradio
 Requires: jolla-mediaplayer-radio
+Requires: libgbinder-radio
 
 # NFC support
 # 1. binder plugin requires Android 8 or a newer base
@@ -102,6 +111,9 @@ Requires: nfcd-binder-plugin
 
 # For mount partitions
 Requires: parse-android-dynparts
+
+# Usb-Tethering
+Requires: sailfish-connman-plugin-tethering-wmtwifi
 
 %description -n patterns-sailfish-device-adaptation-miatoll
 Pattern with packages for miatoll HW Adaptation

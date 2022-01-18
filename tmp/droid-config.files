@@ -70,7 +70,6 @@
 /usr/share/ngfd/plugins.d/60-profile.ini
 /var/lib/environment/nemo/99-qtscenegraph.conf
 /var/lib/environment/compositor/droid-hal-miatoll.conf
-/etc/gbinder.d/alien.conf
 /etc/selinux/minimum/contexts/files/file_contexts
 /etc/selinux/minimum/contexts/dbus_contexts
 /etc/selinux/minimum/policy/policy.30

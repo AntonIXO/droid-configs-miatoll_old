@@ -154,55 +154,63 @@ fi
 %pack --erroronfail
 export SSU_RELEASE_TYPE=release
 ### begin hybris
-pushd $IMG_OUT_DIR
+pushd $IMG_OUT_DIR # ./sfe-$DEVICE-$RELEASE_ID
 
 DEVICE=miatoll
+EXTRA_NAME=@EXTRA_NAME@
+DATE=$(date +"%Y%m%d")
+LOS_VER="18.1"
+bunzip2 -vf sfos-rootfs.tar.bz2
+# Source release info e.g. VERSION
+source ./os-release
 
-VERSION_FILE=./os-release
-source $VERSION_FILE
-
-# Locate rootfs tar.bz2 archive.
-for filename in *.tar.bz2; do
-    GEN_IMG_BASE=$(basename $filename .tar.bz2)
+# Locate rootfs .tar archive
+for filename in *.tar; do
+	GEN_IMG_BASE=$(basename $filename .tar) # sfe-$DEVICE-3.2.0.12
 done
-
-if [ ! -e "$GEN_IMG_BASE.tar.bz2" ]; then
-    echo "No rootfs archive found, exiting ..."
-    exit 1
+if [ ! -e "$GEN_IMG_BASE.tar" ]; then
+	echo "[hybris-installer] No rootfs archive found, exiting..."
+	exit 1
 fi
 
-IMG_SIZE=$(du -h $GEN_IMG_BASE.tar.bz2 | cut -f1)
+# Make sure we have 'bc' to estimate rootfs size
+zypper --non-interactive in bc &> /dev/null
+
+# Roughly estimate the final rootfs size when installed
+IMAGE_SIZE=`echo "scale=2; 2.25 * $(du -h $GEN_IMG_BASE.tar | cut -d'M' -f1)" | bc`
+echo "[hybris-installer] Estimated rootfs size when installed: ${IMAGE_SIZE}M"
 
 # Output filenames
-DST_IMG_BASE=$ID-$DEVICE-$SAILFISH_FLAVOUR-$VERSION_ID@EXTRA_NAME@
-DST_IMG=$DST_IMG_BASE.tar.bz2
+DST_IMG=sfos-rootfs.tar
+DST_PKG=$ID-$VERSION_ID-$DATE-$DEVICE$EXTRA_NAME # sailfishos-3.2.0.12-20191101-$DEVICE
 
-# Copy boot image, updater scripts and updater binary into updater .zip tree.
-mkdir -p updater/META-INF/com/google/android
+# Clone hybris-installer if not preset (e.g. porters-ci build env)
+if [ ! -d ../hybris/hybris-installer/ ]; then
+	git clone --depth 1 https://github.com/sailfishos-oneplus5/hybris-installer ../hybris/hybris-installer > /dev/null
+fi
 
-mv update-binary updater/META-INF/com/google/android/update-binary
-mv hybris-updater-script updater/META-INF/com/google/android/updater-script
-mv hybris-updater-unpack.sh updater/updater-unpack.sh
-mv hybris-boot.img updater/hybris-boot.img
+# Copy rootfs & hybris-installer scripts into updater .zip tree
+mkdir updater/
+mv $GEN_IMG_BASE.tar updater/$DST_IMG
+cp -r ../hybris/hybris-installer/hybris-installer/* updater/
 
-# Temporarily move the rootfs into the updater directory
-mv $GEN_IMG_BASE.tar.bz2 updater/$DST_IMG
+# Update install script with image details
+LOS_VER="18.1"
+sed -e "s/%DEVICE%/$DEVICE/g" -e "s/%VERSION%/$VERSION/g" -e "s/%VERSION_ID%/$VERSION_ID/g" -e "s/%DATE%/$DATE/g" -e "s/%IMAGE_SIZE%/${IMAGE_SIZE}M/g" -e "s/%DST_PKG%/$DST_PKG/g" -e "s/%LOS_VER%/$LOS_VER/g" -i updater/META-INF/com/google/android/update-binary
 
-# Update updater-script with image details.
-sed -i -e "s %VERSION% $VERSION_ID g" -e "s %IMAGE_FILE% $DST_IMG g" -e "s %IMAGE_SIZE% $IMG_SIZE g" updater/META-INF/com/google/android/updater-script
+# Pack updater .zip
+pushd updater # sfe-$DEVICE-$RELEASE_ID/updater
+echo "[hybris-installer] Creating package '$DST_PKG.zip'..."
+zip -r ../$DST_PKG.zip .
+mv $DST_IMG ../$GEN_IMG_BASE.tar
+popd # sfe-$DEVICE-$RELEASE_ID
 
-# pack updater .zip
-pushd updater
-zip -r ../$DST_IMG_BASE.zip META-INF/com/google/android/update-binary META-INF/com/google/android/updater-script updater-unpack.sh hybris-boot.img $DST_IMG_BASE.ks $DST_IMG
-popd # updater
+# Clean up working directory
+rm -rf updater/
 
-# Move the rootfs back out of the updater directory
-mv updater/$DST_IMG $GEN_IMG_BASE.tar.bz2
+echo " DONE!"
 
-# Clean up updater .zip working directory.
-rm -rf updater
-
-popd # $IMG_OUT_DIR
+popd # hadk source tree
 ### end hybris
 %end
 
