@@ -26,9 +26,9 @@ DST_IMG=sfe-miatoll.tar
 # Copy boot image, updater scripts and updater binary into updater .zip tree.
 mkdir -p updater/META-INF/com/google/android
 
-mv update-binary updater/META-INF/com/google/android/update-binary
-mv hybris-updater-script updater/META-INF/com/google/android/updater-script
-mv hybris-updater-unpack.sh updater/updater-unpack.sh
+mv update-binary-my updater/META-INF/com/google/android/update-binary
+mv updater-script-my updater/META-INF/com/google/android/updater-script
+mv updater-unpack.sh-my updater/updater-unpack.sh
 mv hybris-boot.img updater/hybris-boot.img
 mv dtbo.img updater/dtbo.img
 
