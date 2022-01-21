@@ -2,7 +2,7 @@
 
 losetup -r /dev/loop0 /dev/sda17
 dmsetup create --concise "$(parse-android-dynparts /dev/loop0)"
-mkdir -p /system_root /dsp /persist /bt_firmware /firmware
+mkdir -p /system_root /dsp /persist /bt_firmware /firmware /metadata
 mount -o ro,barrier=1,discard  /dev/mapper/dynpart-system  /system_root
 mount -o bind /system_root/system /system
 mount -o ro,barrier=1,discard /dev/mapper/dynpart-product  /product
@@ -12,6 +12,7 @@ mount -o ro,nosuid,nodev,barrier=1  /dev/sde9                      /vendor/dsp
 mount        /dev/sde4       /vendor/firmware_mnt
 mount -o ro  /dev/sde5       /vendor/bt_firmware
 mount        /dev/sda2       /persist
+mount        /dev/sda12      /metadata
 mount -o bind /vendor/firmware_mnt /firmware
 mount -o bind /vendor/firmware_mnt /vendor/rfs/msm/mpss/readonly/vendor/firmware_mnt/
 mount -o bind /vendor/bt_firmware /bt_firmware
@@ -24,6 +25,13 @@ ln -s /system_ext/lib64/libdpmframework.so /odm/lib64/libdpmframework.so
 ln -s /system_ext/lib64/libdiag_system.so /odm/lib64/libdiag_system.so
 ln -s /system_ext/lib64/vendor.qti.diaghal@1.0.so /odm/lib64/vendor.qti.diaghal@1.0.so
 mount --bind /etc/audio_policy_configuration.xml /vendor/etc/audio_policy_configuration.xml
+mount --bind /etc/codec2.vendor.base.policy /vendor/etc/seccomp_policy/codec2.vendor.base.policy
+mount --bind /usr/bin/libexec/droid-hybris/system/lib/android.hardware.sensors@1.0.so /apex/com.android.vndk.current/lib/android.hardware.sensors@1.0.so
+mount --bind /usr/bin/libexec/droid-hybris/system/lib64/android.hardware.sensors@1.0.so /apex/com.android.vndk.current/lib64/android.hardware.sensors@1.0.so
+mount --bind /usr/bin/libexec/droid-hybris/system/lib64/android.hardware.sensors@1.0.so /system/lib64/android.hardware.sensors@1.0.so
+mount --bind /usr/bin/libexec/droid-hybris/system/lib/android.hardware.sensors@1.0.so /system/lib/android.hardware.sensors@1.0.so
+export ADSP_LIBRARY_PATH="/vendor/etc/camera/libsnpe_dsp_v66_domains_v2_skel.so;/system/lib/rfsa/adsp;/system/vendor/lib/rfsa/adsp;/dsp"
+set ADSP_LIBRARY_PATH="/vendor/etc/camera/libsnpe_dsp_v66_domains_v2_skel.so;/system/lib/rfsa/adsp;/system/vendor/lib/rfsa/adsp;/dsp"
 
 mkdir /dev/stune
 mkdir -p /dev/stune/background /dev/stune/foreground /dev/stune/nnapi-hal /dev/stune/top-app /dev/stune/rt
