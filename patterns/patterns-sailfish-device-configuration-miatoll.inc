@@ -38,7 +38,6 @@ Requires: geoclue-provider-mlsdb
 Requires: mapplauncherd-booster-silica-qt5-media
 
 # Add pre-installed some jolla/sailfish apps
-Requires: sailfish-utilities
 Requires: harbour-storeman
 
 %description -n patterns-sailfish-device-configuration-miatoll

@@ -44,8 +44,8 @@ Requires: sailfish-connman-plugin-suspend
 Requires: hybris-libsensorfw-qt5-binder
 
 # Vibra
-Requires: ngfd-plugin-native-vibrator
-Requires: libngf-qt5-qtfeedback
+Requires: qt5-feedback-haptics-ffmemless
+Requires: qt-mobility-haptics-ffmemless
 
 # Needed for /dev/touchscreen symlink
 Requires: qt5-plugin-generic-evdev
@@ -68,9 +68,6 @@ Requires: qtscenegraph-adaptation
 
 # Add GStreamer v1.0 as standard
 Requires: gstreamer1.0
-Requires: gstreamer1.0-plugins-good
-Requires: gstreamer1.0-plugins-base
-Requires: gstreamer1.0-plugins-bad
 Requires: nemo-gstreamer1.0-interfaces
 # For hybris devices with droidmedia, see HADK pdf for more information
 Requires: gstreamer1.0-droid
@@ -91,7 +88,6 @@ Requires: rfkill
 # Requires: jolla-devicelock-daemon-encsfa
 
 # Enable home encryption
-Requires: libargon2-tools
 Requires: droid-hwcrypt
 Requires: sailfish-device-encryption-community
 Requires: sailfish-device-encryption-community-droid
@@ -114,8 +110,12 @@ Requires: nfcd-binder-plugin
 # For mount partitions
 Requires: parse-android-dynparts
 
+# Aliendalvik
+
+Requires: lxc
+Requires: libqt5sparql-tracker-direct
+
 # Usb-Tethering
-Requires: sailfish-connman-plugin-tethering-wmtwifi
 Requires: usb-moded-connection-sharing-android-connman-config
 
 %description -n patterns-sailfish-device-adaptation-miatoll
