@@ -44,8 +44,7 @@ Requires: sailfish-connman-plugin-suspend
 Requires: hybris-libsensorfw-qt5-binder
 
 # Vibra
-Requires: qt5-feedback-haptics-ffmemless
-Requires: qt-mobility-haptics-ffmemless
+Requires: libngf-qt5-qtfeedback
 
 # Needed for /dev/touchscreen symlink
 Requires: qt5-plugin-generic-evdev
