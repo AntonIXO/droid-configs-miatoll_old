@@ -1,10 +1,13 @@
 [Unit]
 Description=Enable Bluetooth HCI over SMD
 DefaultDependencies=false
-After=local-fs.target
+After=local-fs.target droid-late-start.service
+Conflicts=shutdown.target actdead.target
 
 [Service]
 Type=oneshot
+ExecStartPre=/sbin/modprobe btqca
+ExecStart=/sbin/modprobe btqcomsmd
 ExecStart=/bin/sh /usr/bin/droid/droid-get-bt-address.sh
 RemainAfterExit=yes
 TimeoutStartSec=60
