@@ -32,13 +32,6 @@ ln -s /system_ext/lib64/vendor.qti.diaghal@1.0.so /odm/lib64/vendor.qti.diaghal@
 mount --bind /etc/audio_policy_configuration.xml /vendor/etc/audio_policy_configuration.xml
 # Fixed jail properties for HW codecs.
 mount --bind /etc/codec2.vendor.base.policy /vendor/etc/seccomp_policy/codec2.vendor.base.policy
-# Sensors hal fix.
-mount --bind /usr/bin/libexec/droid-hybris/system/lib/android.hardware.sensors@1.0.so /system/apex/com.android.vndk.current/lib/android.hardware.sensors@1.0.so
-mount --bind /usr/bin/libexec/droid-hybris/system/lib64/android.hardware.sensors@1.0.so /system/apex/com.android.vndk.current/lib64/android.hardware.sensors@1.0.so
-mount --bind /usr/bin/libexec/droid-hybris/system/lib64/android.hardware.sensors@1.0.so /system/lib64/android.hardware.sensors@1.0.so
-mount --bind /usr/bin/libexec/droid-hybris/system/lib/android.hardware.sensors@1.0.so /system/lib/android.hardware.sensors@1.0.so
-export ADSP_LIBRARY_PATH="/vendor/etc/camera/libsnpe_dsp_v66_domains_v2_skel.so;/vendor/lib/rfsa/adsp;/dsp"
-set ADSP_LIBRARY_PATH="/vendor/etc/camera/libsnpe_dsp_v66_domains_v2_skel.so;/vendor/lib/rfsa/adsp;/dsp"
 # Fix modules directory.
 mv /lib/modules/* /lib/modules/$(uname -r)
 

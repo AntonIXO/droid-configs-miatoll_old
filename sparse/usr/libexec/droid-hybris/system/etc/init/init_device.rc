@@ -13,10 +13,6 @@ on boot
     # audio wait for pulse defaultuser
 
     wait /run/user/100000/pulse/native 10
-    enable audioserver
     trigger pulse
-
-on pulse
-    start audioserver
 
 

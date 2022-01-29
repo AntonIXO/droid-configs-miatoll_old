@@ -41,6 +41,7 @@ Requires: jolla-settings-system-flashlight
 Requires: sailfish-connman-plugin-suspend
 
 # Sensors
+Requires: hybris-libsensorfw-qt5
 Requires: hybris-libsensorfw-qt5-binder
 
 # Vibra
@@ -88,8 +89,8 @@ Requires: rfkill
 
 # Enable home encryption
 Requires: droid-hwcrypt
-Requires: sailfish-device-encryption-community
-Requires: sailfish-device-encryption-community-droid
+#Requires: sailfish-device-encryption-community
+#Requires: sailfish-device-encryption-community-droid
 
 # For GPS
 Requires: geoclue-provider-hybris
