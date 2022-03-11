@@ -25,7 +25,6 @@ Requires: nfcd-mce-plugin
 # Introduced starting Sailfish OS 2.0.4.x:
 # 3rd party accounts like Twitter, VK, cloud services, etc
 Requires: jolla-settings-accounts-extensions-3rd-party-all
-Requires: jolla-settings-accounts-extensions-vk
 Requires: jolla-settings-accounts-extensions-onedrive
 Requires: jolla-settings-accounts-extensions-google
 

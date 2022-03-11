@@ -27,8 +27,6 @@ Requires: bluebinder
 
 #Fingerprintd
 Requires: sailfish-devicelock-fpd
-Requires: droid-biometry-fp
-Requires: sailfish-fpd
 
 # Telephony
 Requires: ofono-ril-binder-plugin
@@ -41,10 +39,10 @@ Requires: jolla-settings-system-flashlight
 Requires: sailfish-connman-plugin-suspend
 
 # Sensors
-Requires: hybris-libsensorfw-qt5
 Requires: hybris-libsensorfw-qt5-binder
 
 # Vibra
+Requires: qt5-feedback-haptics-ffmemless
 Requires: libngf-qt5-qtfeedback
 
 # Needed for /dev/touchscreen symlink
@@ -89,8 +87,8 @@ Requires: rfkill
 
 # Enable home encryption
 Requires: droid-hwcrypt
-#Requires: sailfish-device-encryption-community
-#Requires: sailfish-device-encryption-community-droid
+Requires: sailfish-device-encryption-community
+Requires: sailfish-device-encryption-community-droid
 
 # For GPS
 Requires: geoclue-provider-hybris
